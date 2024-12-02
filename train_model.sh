@@ -2,9 +2,9 @@
 
 python /mace/scripts/run_train.py \
     --name="MACE-F" \
-    --train_file="./data_all_move.xyz" \
+    --train_file="./training_data.xyz" \
     --valid_fraction=0.05 \
-    --test_file="./data_all_move.xyz" \
+    --test_file="./training_data.xyz" \
     --E0s="average" \
     --model="MACE" \
     --hidden_irreps='64x0e + 64x1o' \
