@@ -1,0 +1,39 @@
+#!/bin/bash
+
+python /mace/scripts/run_train.py \
+    --name="MACE-F" \
+    --train_file="./data_all_move.xyz" \
+    --valid_fraction=0.05 \
+    --test_file="./data_all_move.xyz" \
+    --E0s="average" \
+    --model="MACE" \
+    --hidden_irreps='64x0e + 64x1o' \
+    --num_interactions=2 \
+    --num_channels=64 \
+    --max_L=1 \
+    --r_max=6.0 \
+    --forces_key='DFT_forces' \
+    --energy_key='DFT_energy' \
+    --stress_key='DFT_stress' \
+    --lr=0.01 \
+    --swa_lr=0.001 \
+    --forces_weight=1000 \
+    --swa_forces_weight=100 \
+    --energy_weight=0 \
+    --swa_energy_weight=0 \
+    --stress_weight=0.0 \
+    --batch_size=4 \
+    --valid_batch_size=4 \
+    --max_num_epochs=200 \
+    --start_swa=100 \
+    --scheduler_patience=15 \
+    --patience=30 \
+    --eval_interval=1 \
+    --ema \
+    --swa \
+    --error_table='PerAtomMAE' \
+    --default_dtype="float64"\
+    --device=cuda \
+    --seed=123 \
+    --restart_latest \
+    --save_cpu \
